@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    active: dev
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-active: 20
+      max-wait: 3000
+      min-idle: 5
+      time-between-eviction-runs-millis: 60000
+      # 配置DruidStatViewServlet
+      stat-view-servlet:
+        # 登录名
+        login-username: xu
+        # 登录密码
+        login-password: xu2020
+
+logging:
+  config: classpath:logback-boot.xml
+  level:
+    com:
+      example:
+        mapper: debug
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.xu.calligraphy.boot.dal.model
+server:
+  port: 8080

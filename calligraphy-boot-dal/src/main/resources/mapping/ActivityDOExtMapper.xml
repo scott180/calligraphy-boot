@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xu.calligraphy.boot.dal.mapper.ActivityDOMapper">
+    <sql id="where_base_query">
+        <if test="beginTime != null">
+            and beginTime &gt;= #{beginTime}
+        </if>
+        <if test="endTime != null">
+            and endTime &lt;= #{endTim}
+        </if>
+        <if test="name != null">
+            and name like CONCAT('%',CONCAT(#{name},'%'))
+        </if>
+        <if test="creator != null">
+            and creator = #{creator}
+        </if>
+        <if test="del != null">
+            and del = #{del}
+        </if>
+        <if test="idList!=null and idList.size()>0">
+            and id in
+            <foreach collection="idList" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </if>
+    </sql>
+    <select id="queryActivityList" resultMap="BaseResultMap"
+            parameterType="com.xu.calligraphy.boot.dal.query.ActivityQuery">
+        select
+        <include refid="Base_Column_List"/>
+        from activity
+        <where>
+            <include refid="where_base_query"/>
+        </where>
+        order by id limit #{limit},#{pageSize}
+    </select>
+
+    <select id="queryActivityListCount" resultType="java.lang.Long"
+            parameterType="com.xu.calligraphy.boot.dal.query.ActivityQuery">
+        select count(*) from activity
+        <where>
+            <include refid="where_base_query"/>
+        </where>
+    </select>
+</mapper>

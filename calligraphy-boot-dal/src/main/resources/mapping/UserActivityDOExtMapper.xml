@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xu.calligraphy.boot.dal.mapper.UserActivityDOMapper">
+
+    <sql id="where_base_query">
+        <if test="userId != null">
+            and userId = #{userId}
+        </if>
+        <if test="activityId != null">
+            and activityId = #{activityId}
+        </if>
+        <if test="cancel != null">
+            and cancel = #{cancel}
+        </if>
+    </sql>
+    <select id="queryUserActivityList" resultMap="BaseResultMap"
+            parameterType="com.xu.calligraphy.boot.dal.query.UserActivityQuery">
+        select
+        <include refid="Base_Column_List"/>
+        from user_activity
+        <where>
+            <include refid="where_base_query"/>
+        </where>
+        order by id limit #{limit},#{pageSize}
+    </select>
+
+    <select id="queryUserActivityListCount" resultType="java.lang.Long"
+            parameterType="com.xu.calligraphy.boot.dal.query.UserActivityQuery">
+        select count(*) from user_activity
+        <where>
+            <include refid="where_base_query"/>
+        </where>
+    </select>
+    <update id="updateBatch" parameterType="list" keyProperty="id" useGeneratedKeys="true">
+        <foreach collection="list" index="index" item="item" open="" separator=";" close="">
+            update user_activity
+            <set>
+                userId = #{item.userId,jdbcType=BIGINT},
+                activityId = #{item.activityId,jdbcType=BIGINT},
+                cancel = #{item.cancel,jdbcType=INTEGER},
+                del = #{item.del,jdbcType=INTEGER},
+                creator = #{item.creator,jdbcType=VARCHAR},
+                modifier = #{item.modifier,jdbcType=VARCHAR},
+                createDate = #{item.createDate,jdbcType=TIMESTAMP},
+                modifyDate = #{item.modifyDate,jdbcType=TIMESTAMP}
+            </set>
+            WHERE id = #{item.id,jdbcType=BIGINT}
+        </foreach>
+    </update>
+</mapper>

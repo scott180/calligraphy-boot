@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xu.calligraphy.boot.dal.mapper.UserDOMapper">
+
+    <sql id="where_user_query">
+        <if test="loginName != null">
+            and loginName like CONCAT('%',CONCAT(#{loginName},'%'))
+        </if>
+        <if test="name != null">
+            and name like CONCAT('%',CONCAT(#{name},'%'))
+        </if>
+        <if test="sex != null">
+            and sex = #{sex}
+        </if>
+        <if test="age != null">
+            and age = #{age}
+        </if>
+    </sql>
+    <select id="queryUserList" resultMap="BaseResultMap"
+            parameterType="com.xu.calligraphy.boot.dal.query.UserQuery">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        <where>
+            <include refid="where_user_query"/>
+        </where>
+        order by id limit #{limit},#{pageSize}
+    </select>
+
+    <select id="queryUserListCount" resultType="java.lang.Long"
+            parameterType="com.xu.calligraphy.boot.dal.query.UserQuery">
+        select count(*) from user
+        <where>
+            <include refid="where_user_query"/>
+        </where>
+    </select>
+</mapper>

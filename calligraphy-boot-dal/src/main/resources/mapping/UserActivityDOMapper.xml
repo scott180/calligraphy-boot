@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xu.calligraphy.boot.dal.mapper.UserActivityDOMapper" >
+  <resultMap id="BaseResultMap" type="com.xu.calligraphy.boot.dal.model.UserActivityDO" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="userId" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="activityId" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="del" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="cancel" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="creator" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="modifier" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="createDate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="modifyDate" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, activityId, del, cancel, creator, modifier, createDate, modifyDate
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from user_activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user_activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xu.calligraphy.boot.dal.model.UserActivityDO" >
+    insert into user_activity (id, userId, activityId,
+    del, cancel, creator,
+    modifier, createDate, modifyDate
+    )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{activityId,jdbcType=BIGINT},
+    #{del,jdbcType=INTEGER}, #{cancel,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR},
+    #{modifier,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{modifyDate,jdbcType=TIMESTAMP}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xu.calligraphy.boot.dal.model.UserActivityDO" >
+    insert into user_activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+      <if test="activityId != null" >
+        activityId,
+      </if>
+      <if test="del != null" >
+        del,
+      </if>
+      <if test="cancel != null" >
+        cancel,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="createDate != null" >
+        createDate,
+      </if>
+      <if test="modifyDate != null" >
+        modifyDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="del != null" >
+        #{del,jdbcType=INTEGER},
+      </if>
+      <if test="cancel != null" >
+        #{cancel,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null" >
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xu.calligraphy.boot.dal.model.UserActivityDO" >
+    update user_activity
+    <set >
+      <if test="userId != null" >
+        userId = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="activityId != null" >
+        activityId = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="del != null" >
+        del = #{del,jdbcType=INTEGER},
+      </if>
+      <if test="cancel != null" >
+        cancel = #{cancel,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        createDate = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null" >
+        modifyDate = #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xu.calligraphy.boot.dal.model.UserActivityDO" >
+    update user_activity
+    set userId = #{userId,jdbcType=BIGINT},
+    activityId = #{activityId,jdbcType=BIGINT},
+    del = #{del,jdbcType=INTEGER},
+    cancel = #{cancel,jdbcType=INTEGER},
+    creator = #{creator,jdbcType=VARCHAR},
+    modifier = #{modifier,jdbcType=VARCHAR},
+    createDate = #{createDate,jdbcType=TIMESTAMP},
+    modifyDate = #{modifyDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
