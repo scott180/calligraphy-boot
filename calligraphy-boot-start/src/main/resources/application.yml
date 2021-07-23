@@ -33,3 +33,6 @@ mybatis:
   type-aliases-package: com.xu.calligraphy.boot.dal.model
 server:
   port: 8080
+  thymeleaf:
+    #    prefix: classpath:/web/
+    cache: false
