@@ -4,9 +4,9 @@
 *   [1、配置](#config)
 *   [2、接口说明](#interface)   
 
-> [markdown]( https://jbt.github.io/markdown-editor/ )    [马克飞象]( https://maxiang.io )   [作业部落]( https://www.zybuluo.com/mdeditor )    
-
 > [gitlab]( https://gitlab.com/xuyq123/calligraphy-boot ) [github]( https://github.com/scott180 )  [gitee]( https://gitee.com )
+
+> [markdown]( https://jbt.github.io/markdown-editor/ )    [马克飞象]( https://maxiang.io )   [作业部落]( https://www.zybuluo.com/mdeditor )
 
 
 <h2 id="config"></h2>
@@ -91,10 +91,9 @@ activity/cancelActivity
 ```
 书法练习轨迹--明月几时有
 
+http://localhost:8080/shu
+
 http://localhost:8080/%E4%B9%A6%E6%B3%95%E7%BB%83%E4%B9%A0%E8%BD%A8%E8%BF%B9--%E6%98%8E%E6%9C%88%E5%87%A0%E6%97%B6%E6%9C%89.html
-
-
-
 
 
 ```
