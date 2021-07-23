@@ -87,3 +87,11 @@ activity/joinActivity
 activity/cancelActivity
 
 ```
+
+```
+访问页面
+
+http://localhost:8080/index.html
+http://localhost:8080
+
+```
