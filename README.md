@@ -21,8 +21,8 @@ feature_2021072701  展示“书法练习轨迹”war包分支，布署tomcat。
 master              主分支
 
 接口
-http://127.0.0.1:8080/calligraphy/boot/shu/test
-http://127.0.0.1:8080/calligraphy/boot/shu
+http://localhost:8080/calligraphy-boot/shu/test?type=1&name=java
+http://localhost:8080/calligraphy-boot/shu
 
 书法练习轨迹--明月几时有
 http://localhost:8080/%E4%B9%A6%E6%B3%95%E7%BB%83%E4%B9%A0%E8%BD%A8%E8%BF%B9--%E6%98%8E%E6%9C%88%E5%87%A0%E6%97%B6%E6%9C%89.html

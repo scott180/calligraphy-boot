@@ -37,4 +37,4 @@ server:
     #    prefix: classpath:/web/
     cache: false
   servlet:
-    context-path : /calligraphy/boot
+    context-path : /calligraphy-boot
