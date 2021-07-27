@@ -5,7 +5,7 @@
 *   [2、配置](#config)
 *   [3、接口](#interface)
 
-> [gitlab]( https://gitlab.com/xuyq123/calligraphy-boot ) [github]( https://github.com/scott180 )  [gitee]( https://gitee.com )
+> [gitlab]( https://gitlab.com/xuyq123/calligraphy-boot ) &ensp; [github]( https://github.com/scott180/calligraphy-boot ) &ensp; [gitee]( https://gitee.com/calligraphy-boot )
 
 
 <h2 id="introduce"></h2>
@@ -26,6 +26,38 @@ http://localhost:8080/calligraphy-boot/shu
 
 书法练习轨迹--明月几时有
 http://localhost:8080/%E4%B9%A6%E6%B3%95%E7%BB%83%E4%B9%A0%E8%BD%A8%E8%BF%B9--%E6%98%8E%E6%9C%88%E5%87%A0%E6%97%B6%E6%9C%89.html
+
+```
+
+```
+springboot项目打包布署
+https://gitlab.com/xuyq123/calligraphy-boot
+
+方法一：maven打包jar、运行jar
+
+Administrator@ho-xyq MINGW64 /e/Project/gitlab/calligraphy-boot (dev_2021072301)
+$ mvn clean package
+
+Administrator@ho-xyq MINGW64 /e/Project/gitlab/calligraphy-boot/calligraphy-boot-start/target (dev_2021072301)
+$ java -jar calligraphy-boot-start-1.0-SNAPSHOT.jar
+
+
+方法二：maven打包war、布署tomcat
+
+1、mvn clean package
+2、将 calligraphy-boot.war 复制到 E:\ProgramFiles\apache-tomcat-8.5.31\webapps
+3、启动tomcat   E:\ProgramFiles\apache-tomcat-8.5.31\bin\startup.bat
+
+
+----
+
+maven常用打包命令
+1、mvn compile 编译,将Java 源程序编译成 class 字节码文件。
+2、mvn test 测试，并生成测试报告
+3、mvn clean 将以前编译得到的旧的 class 字节码文件删除
+4、mvn pakage 打包,动态 web工程打 war包，Java工程打 jar 包。
+5、mvn install 将项目生成 jar 包放在仓库中，以便别的模块调用
+6、mvn clean install -Dmaven.test.skip=true  抛弃测试用例打包
 
 ```
 
