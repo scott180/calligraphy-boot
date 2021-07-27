@@ -1,11 +1,17 @@
 package com.xu.calligraphy.boot.start.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.xu.calligraphy.boot.common.Result;
 import com.xu.calligraphy.boot.common.util.CommonUtil;
+import com.xu.calligraphy.boot.dal.params.ActivityPublishParams;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,5 +35,10 @@ public class CalligraphyController {
         return "书法练习轨迹--明月几时有.html";
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/shu/test", method = RequestMethod.GET)
+    public Result queryActivityDetail(@ModelAttribute ActivityPublishParams publishParams) {
+        return Result.success(JSON.toJSONString(publishParams));
+    }
 
 }

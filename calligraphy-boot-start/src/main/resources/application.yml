@@ -36,3 +36,5 @@ server:
   thymeleaf:
     #    prefix: classpath:/web/
     cache: false
+  servlet:
+    context-path : /calligraphy/boot
