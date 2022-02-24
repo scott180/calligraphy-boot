@@ -20,7 +20,7 @@ dev_2021072301      展示“书法练习轨迹”jar包分支，java命令行�
 feature_2021072701  展示“书法练习轨迹”war包分支，布署tomcat。
 master              主分支
 
-接口
+接口test
 http://localhost:8080/calligraphy-boot/shu/test?type=1&name=java
 http://localhost:8080/calligraphy-boot/shu
 
