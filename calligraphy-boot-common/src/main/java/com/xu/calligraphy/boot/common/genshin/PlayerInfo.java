@@ -9,8 +9,12 @@ import lombok.Data;
 // 玩家基础信息
 @Data
 public class PlayerInfo {
-    private String nickname;      // 玩家昵称
-    private int level;            // 玩家等级
-    private String signature;     // 玩家签名
-    private String uid;           // UID
+    private String nickname;
+    private int level;
+    private String signature;
+    private String uid;
+    private int worldLevel; // 世界等级
+    private int finishAchievementNum; // 成就数
+    private int towerFloorIndex; // 深境螺旋层数
+    private int towerLevelIndex; // 深境螺旋间数
 }

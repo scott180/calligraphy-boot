@@ -13,9 +13,4 @@ public class PlayerInfoWithCharacters {
     private PlayerInfo playerInfo;
     private List<CharacterInfo> characterList;
 
-    // getter/setter
-    public PlayerInfo getPlayerInfo() { return playerInfo; }
-    public void setPlayerInfo(PlayerInfo playerInfo) { this.playerInfo = playerInfo; }
-    public List<CharacterInfo> getCharacterList() { return characterList; }
-    public void setCharacterList(List<CharacterInfo> characterList) { this.characterList = characterList; }
 }

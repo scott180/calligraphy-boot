@@ -12,4 +12,6 @@ public class WeaponInfo {
     private String name;          // 武器名
     private int level;            // 武器等级
     private int refineLevel;      // 精炼等级
+    private int promoteLevel; // 武器突破等级
+    private String icon; // 武器图标
 }
