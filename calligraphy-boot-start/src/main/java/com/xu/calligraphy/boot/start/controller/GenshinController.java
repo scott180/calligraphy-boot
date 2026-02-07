@@ -22,7 +22,7 @@ public class GenshinController {
      */
     @GetMapping("/character")
     public Result getCharacterInfo(@ModelAttribute GenshinParam param) {
-        return Result.success(genshinService.findCharacterInfo(param));
+        return genshinService.findCharacterInfo(param);
     }
 
     /**
@@ -30,6 +30,6 @@ public class GenshinController {
      */
     @PostMapping("/team/dps")
     public Result<Double> calculateTeamDps(@RequestBody GenshinParam param) {
-        return Result.success(genshinService.calculateTeamDps(param));
+        return genshinService.calculateTeamDps(param);
     }
 }
