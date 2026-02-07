@@ -35,7 +35,8 @@ public class GenshinServiceImpl implements GenshinService {
         Request request = new Request.Builder()
                 .url(ENKA_API_URL + uid)
                 .build();
-        try (Response response = okHttpClient.newCall(request).execute()) {
+        try{
+            Response response = okHttpClient.newCall(request).execute();
             if (!response.isSuccessful()) {
                 return Result.error("API请求失败，状态码：" + response.code());
             }
